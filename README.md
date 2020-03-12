@@ -1,6 +1,6 @@
 # hello_flutter
 
-A new Flutter project.
+> [@lesnitsky/flutter_code_evenings](https://github.com/lesnitsky/flutter_code_evenings)
 
 ## Getting Started
 
