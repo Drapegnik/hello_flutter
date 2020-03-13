@@ -50,9 +50,22 @@ class MyApp extends StatelessWidget {
                       ))),
               Expanded(
                   flex: 1,
-                  child: Container(
-                      color: Colors.green,
-                      constraints: BoxConstraints.expand()))
+                  child: Stack(alignment: Alignment.bottomRight, children: [
+                    Container(
+                        color: Colors.green,
+                        constraints: BoxConstraints.expand()),
+                    IndexedStack(index: 1, children: [
+                      Padding(
+                          padding: const EdgeInsets.all(30.0),
+                          child: Square(color: Colors.black)),
+                      Padding(
+                          padding: const EdgeInsets.all(20.0),
+                          child: Square(color: Colors.white)),
+                    ]),
+                    Align(
+                        child: Square(color: Colors.white),
+                        alignment: Alignment.topLeft)
+                  ]))
             ])));
   }
 }
