@@ -20,8 +20,22 @@ class Square extends StatelessWidget {
   }
 }
 
+// Square(color: Colors.red),
+//         Square(color: Colors.blue),
+//         Square(color: Colors.black),
+
 class MyApp extends StatelessWidget {
   final String title = 'Hello Flutter';
+
+  _buildScrollableContent() {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: List.generate(26, (index) {
+        int c = 255 - index * 10;
+        return Container(color: Color.fromARGB(255, c, c, c), height: 50);
+      }),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,14 +54,9 @@ class MyApp extends StatelessWidget {
                   child: Container(
                       color: Colors.white,
                       constraints: BoxConstraints.expand(),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: <Widget>[
-                          Square(color: Colors.red),
-                          Square(color: Colors.blue),
-                          Square(color: Colors.black),
-                        ],
-                      ))),
+                      child: Scrollbar(
+                          child: SingleChildScrollView(
+                              child: _buildScrollableContent())))),
               Expanded(
                   flex: 1,
                   child: Stack(alignment: Alignment.bottomRight, children: [
@@ -57,13 +66,13 @@ class MyApp extends StatelessWidget {
                     IndexedStack(index: 1, children: [
                       Padding(
                           padding: const EdgeInsets.all(30.0),
-                          child: Square(color: Colors.black)),
+                          child: Square(color: Colors.red)),
                       Padding(
                           padding: const EdgeInsets.all(20.0),
-                          child: Square(color: Colors.white)),
+                          child: Square(color: Colors.blue)),
                     ]),
                     Align(
-                        child: Square(color: Colors.white),
+                        child: Square(color: Colors.black),
                         alignment: Alignment.topLeft)
                   ]))
             ])));
