@@ -20,10 +20,6 @@ class Square extends StatelessWidget {
   }
 }
 
-// Square(color: Colors.red),
-//         Square(color: Colors.blue),
-//         Square(color: Colors.black),
-
 class MyApp extends StatelessWidget {
   final String title = 'Hello Flutter';
 
@@ -33,7 +29,24 @@ class MyApp extends StatelessWidget {
         itemBuilder: (context, index) {
           print('lazy build $index');
           int c = 255 - index * 10;
-          return Container(color: Color.fromARGB(255, c, c, c), height: 50);
+          return Container(
+              alignment: Alignment.center,
+              color: Color.fromARGB(255, c, 255, c),
+              height: 50,
+              padding: const EdgeInsets.all(10),
+              child: RichText(
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  text: TextSpan(children: [
+                    TextSpan(
+                        text: '$index: ',
+                        style: TextStyle(color: Colors.black, fontSize: 18)),
+                    TextSpan(text: 'Long time ago '),
+                    TextSpan(text: 'lorem ipsum dolor sit amet '),
+                    TextSpan(
+                        text: 'lorem ipsum dolor sit amet',
+                        style: TextStyle(color: Colors.pink)),
+                  ])));
         });
   }
 
