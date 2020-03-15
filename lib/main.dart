@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -52,18 +53,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return CupertinoApp(
         title: title,
-        theme: ThemeData(
-          primarySwatch: Colors.green,
-        ),
-        home: Scaffold(
-            appBar: AppBar(
-              title: Text(title),
+        home: CupertinoPageScaffold(
+            navigationBar: CupertinoNavigationBar(
+              middle: Text(title),
             ),
-            body: Column(children: <Widget>[
+            child: Column(children: <Widget>[
               Expanded(
-                  flex: 6,
+                  flex: 9,
                   child: Container(
                       color: Colors.white,
                       constraints: BoxConstraints.expand(),

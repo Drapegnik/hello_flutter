@@ -1,7 +1,10 @@
+start:
+	flutter run -d macOS
+
 ios-sim:
 	open -a Simulator
 
-start: ios-sim
+start-ios: ios-sim
 	flutter run
 
 lint:
