@@ -2,6 +2,8 @@
 
 > [@lesnitsky/flutter_code_evenings](https://github.com/lesnitsky/flutter_code_evenings)
 
+![](https://res.cloudinary.com/dzsjwgjii/image/upload/v1596233572/hello-flutter_rnp4cy.png)
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
